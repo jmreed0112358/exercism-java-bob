@@ -7,6 +7,18 @@ public class BobTest {
     private final Bob bob = new Bob();
 
     @Test
+    public void test_hey_NullString_ThrowsException() {
+    	try {
+    		bob.hey( null );
+    		fail("Supposed to catch NullPointerException");
+    	} catch ( NullPointerException npe ) {
+    		
+    	} catch ( Exception e ) {
+    		fail("Expected to catch NullPointerException");
+    	}
+    }
+    
+    @Test
     public void saySomething() {
         assertEquals(
             "Whatever.",
