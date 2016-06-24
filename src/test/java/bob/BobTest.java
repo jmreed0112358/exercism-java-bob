@@ -32,8 +32,13 @@ public class BobTest {
     }
     
     @Test
-    public void test_isQuestion_NoLettersAllSymbolsNoQuestionMark_ReturnsFalse() {
+    public void test_isQuestion_NoLettersAllSymbolsNoExclamationMark_ReturnsFalse() {
     	assertFalse( bob.isQuestion( "^&*^*&&^*&^*&^*(()" ) );
+    }
+    
+    @Test
+    public void test_isQuestion_NoLettersAllSymbolsExclamationMark_ReturnsFalse() {
+    	assertFalse( bob.isQuestion( "^&*^*&&^*&^*&^*(()?!" ) );
     }
     
     @Test
@@ -99,16 +104,6 @@ public class BobTest {
     	assertFalse( bob.isYelling( "No YOU FOOL" ) );
     }
     
-    @Test
-    public void test_isQuestion_NoLettersAllSymbolsNoExclamationMark_ReturnsFalse() {
-    	assertFalse( bob.isQuestion( "^&*^*&&^*&^*&^*(()" ) );
-    }
-    
-    @Test
-    public void test_isQuestion_NoLettersAllSymbolsExclamationMark_ReturnsTrue() {
-    	assertTrue( bob.isQuestion( "^&*^*&&^*&^*&^*(()?!" ) );
-    }
-    
     // isAllSpaces(...) tests.
     @Test
     public void test_isEmptyOrAllSpaces_EmptyString_ReturnsTrue() {
@@ -145,7 +140,7 @@ public class BobTest {
     
     @Test
     public void test_hey_ShoutingButNotAllLettersAreCaps_ReturnsExpectedResponse() {
-    	assertEquals( "Whatever", bob.hey( "No YOU FOOL!" ) );
+    	assertEquals( "Whatever.", bob.hey( "No YOU FOOL!" ) );
     }
     
     @Test
